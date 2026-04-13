@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI';
+    scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+    background: #ffe4ec;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* Background Glow */
+.bg-glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #ffb6c1, transparent);
+    filter: blur(150px);
+    top: 20%;
+    left: 30%;
+    z-index: -1;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4d88;
+    text-shadow: 0 0 10px #ff4d88;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 1rem;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Hover Underline */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff4d88;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #ff4d88;
+}
+
+/* Active Link */
+.nav-links a.active {
+    color: #ff4d88;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        flex-direction: column;
+        width: 200px;
+        background: white;
+        padding: 20px;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ===== HERO ===== */
+#home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero-content span {
+    color: #0008f5;
+    text-shadow: 0 0 15px #ff4d88;
+}
+
+.typing {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #ff4d88;
+}
+
+/* Buttons */
+.btns {
+    margin-top: 30px;
+}
+
+.btns a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
+    border: 2px solid #ff4d88;
+    color: #ff4d88;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btns a:hover {
+    background: #ff4d88;
+    color: white;
+    box-shadow: 0 0 20px #ff4d88;
+    transform: scale(1.1);
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+/* ===== SKILLS ===== */
+.skill-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill {
+    margin: 10px;
+    padding: 10px 20px;
+    border: 1px solid #ff4d88;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #ff4d88;
+    color: white;
+    box-shadow: 0 0 15px #ff4d88;
+}
+
+/* ===== PROJECTS ===== */
+.project-card {
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
